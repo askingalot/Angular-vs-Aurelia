@@ -12,7 +12,6 @@ import { Comedian } from './models';
 })
 export class ComedianDetailsComponent implements OnInit, OnDestroy{
     comedian: Comedian;
-    id: number;
 
     private routeObserver: any;
 
@@ -22,13 +21,13 @@ export class ComedianDetailsComponent implements OnInit, OnDestroy{
         private router: Router){}
 
     ngOnInit() {
-        this.routeObserver= this.route
-        .params
-        .subscribe(params => {
-            this.id = parseInt(params['id']);
-            this.dataService.getComedianById(this.id)
-            .then(comedian => this.comedian = comedian);
-        });        
+        this.routeObserver = this.route
+          .params
+          .subscribe(params => {
+              const id = parseInt(params['id']);
+              this.dataService.getComedianById(id)
+                  .then(comedian => this.comedian = comedian);
+          });
     }
 
     ngOnDestroy(){

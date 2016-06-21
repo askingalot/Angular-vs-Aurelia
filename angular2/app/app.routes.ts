@@ -2,7 +2,7 @@ import { provideRouter, RouterConfig } from '@angular/router';
 import {ComedianListComponent} from './comedian-list.component';
 import {ComedianDetailsComponent} from './comedian-details.component';
 
-export const routes: RouterConfig = [
+const routes: RouterConfig = [
     {
         path: '',
         component: ComedianListComponent,
